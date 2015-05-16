@@ -23,14 +23,18 @@ html {
   }
 }
 
+.viewWindow {
+  height: 100%;
+}
+
 md-toolbar.md-default-theme {
-  background-color: black;
+  background-color: c;
 }
 
 section.jumbotron {
   margin-bottom: 30px;
   padding: 1px 30px;
-  background-color: #5aadbb;
+  background-color: rgb(63,81,181);;
   text-align: center;
 
   color: white;

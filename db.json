@@ -1,0 +1,38 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "Regression"
+    },
+    {
+      "id": 2,
+      "name": "Pipes"
+    },
+    {
+      "id": 3,
+      "name": "Sheriff"
+    },
+    {
+      "id": 4,
+      "name": "Sam Is A Big Doodyface Who Makes People Work Hard On Mondays"
+    }
+  ],
+  "SampleLines": [
+    {
+      "id": 1,
+      "SampleLines": "some sampleLines 1"
+    },
+    {
+      "id": 2,
+      "SampleLines": "some sampleLines 2"
+    },
+    {
+      "id": 3,
+      "SampleLines": "some sampleLines 3"
+    },
+    {
+      "id": 4,
+      "SampleLines": "some sampleLines 4"
+    }
+  ]
+}

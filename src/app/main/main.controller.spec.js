@@ -1,5 +1,5 @@
 'use strict';
-
+//todo: add tests here
 describe('controllers', function(){
   var scope;
 

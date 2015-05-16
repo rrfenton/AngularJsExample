@@ -1,58 +1,67 @@
 'use strict';
 
-angular.module('angularJsExample')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      {
-        'title': 'AngularJS',
-        'url': 'https://angularjs.org/',
-        'description': 'HTML enhanced for web apps!',
-        'logo': 'angular.png'
-      },
-      {
-        'title': 'BrowserSync',
-        'url': 'http://browsersync.io/',
-        'description': 'Time-saving synchronised browser testing.',
-        'logo': 'browsersync.png'
-      },
-      {
-        'title': 'GulpJS',
-        'url': 'http://gulpjs.com/',
-        'description': 'The streaming build system.',
-        'logo': 'gulp.png'
-      },
-      {
-        'title': 'Jasmine',
-        'url': 'http://jasmine.github.io/',
-        'description': 'Behavior-Driven JavaScript.',
-        'logo': 'jasmine.png'
-      },
-      {
-        'title': 'Karma',
-        'url': 'http://karma-runner.github.io/',
-        'description': 'Spectacular Test Runner for JavaScript.',
-        'logo': 'karma.png'
-      },
-      {
-        'title': 'Protractor',
-        'url': 'https://github.com/angular/protractor',
-        'description': 'End to end test framework for AngularJS applications built on top of WebDriverJS.',
-        'logo': 'protractor.png'
-      },
-      {
-        'title': 'Angular Material Design',
-        'url': 'https://material.angularjs.org/#/',
-        'description': 'The Angular reference implementation of the Google\'s Material Design specification.',
-        'logo': 'angular-material.png'
-      },
-      {
-        'title': 'Sass (Node)',
-        'url': 'https://github.com/sass/node-sass',
-        'description': 'Node.js binding to libsass, the C version of the popular stylesheet preprocessor, Sass.',
-        'logo': 'node-sass.png'
-      }
-    ];
-    angular.forEach($scope.awesomeThings, function(awesomeThing) {
-      awesomeThing.rank = Math.random();
-    });
-  });
+var app = angular.module('angularJsExample');
+
+//todo: rip these controllers out as their own modules / files
+
+app.controller('MainCtrl', function ($scope, $timeout, $mdSidenav, $mdUtil, $log, selectedProject) {
+  $scope.toggleLeft = buildToggler('left');
+  /**
+   * Build handler to open/close a SideNav; when animation finishes
+   * report completion in console
+   */
+
+   
+  function buildToggler(navID) {
+    var debounceFn =  $mdUtil.debounce(function(){
+          $mdSidenav(navID)
+            .toggle()
+            .then(function () {
+              $log.debug('toggle ' + navID + ' is done');
+            });
+        },300);
+    return debounceFn;
+  }
+});
+
+app.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log, selectedProject) {
+  $scope.close = function () {
+    $mdSidenav('left').close()
+      .then(function () {
+        $log.debug('close LEFT is done');
+      });
+  };
+  
+  //todo: have gulp / deployment inject correct url here
+  
+  $scope.projects = [
+    { name: 'Regression', wanted: true },
+    { name: 'Sheriff', wanted: false },
+    { name: 'Pipes', wanted: true },
+    { name: 'Sam is a ah who cares', wanted: false }
+  ];
+  
+  $scope.selectedProject = selectedProject.getProject(); 
+  
+});
+
+app.controller('MainView', function ($scope, selectedProject)
+{
+    $scope.selectedProject = selectedProject.getProject();
+});
+
+app.service('selectedProject', function () {
+    var project = {
+      Id: 'No project selected'
+    };
+
+    return {
+        getProject: function () {
+            return project;
+        },
+        setProjectId: function(value) {
+            project = value;
+        }
+    };
+});
+ 
