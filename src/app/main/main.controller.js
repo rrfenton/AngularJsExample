@@ -4,50 +4,30 @@ var app = angular.module('angularJsExample');
 
 //todo: rip these controllers out as their own modules / files
 
-app.controller('MainCtrl', function ($scope, $timeout, $mdSidenav, $mdUtil, $log, selectedProject) {
-  $scope.toggleLeft = buildToggler('left');
-  /**
-   * Build handler to open/close a SideNav; when animation finishes
-   * report completion in console
-   */
-
-   
-  function buildToggler(navID) {
-    var debounceFn =  $mdUtil.debounce(function(){
-          $mdSidenav(navID)
-            .toggle()
-            .then(function () {
-              $log.debug('toggle ' + navID + ' is done');
-            });
-        },300);
-    return debounceFn;
-  }
+app.controller('MainCtrl', function () {
 });
 
-app.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log, selectedProject) {
-  $scope.close = function () {
-    $mdSidenav('left').close()
-      .then(function () {
-        $log.debug('close LEFT is done');
-      });
-  };
-  
+app.controller('LeftCtrl', function ($scope, $http, selectedProject, refreshProjectData) {
   //todo: have gulp / deployment inject correct url here
   
-  $scope.projects = [
-    { name: 'Regression', wanted: true },
-    { name: 'Sheriff', wanted: false },
-    { name: 'Pipes', wanted: true },
-    { name: 'Sam is a ah who cares', wanted: false }
-  ];
+    $http.get('http://localhost:3000/projects').
+    success(function(data) {
+      $scope.projects = data;
+    }).
+    error(function() {
+      // log error
+    });
   
-  $scope.selectedProject = selectedProject.getProject(); 
+  $scope.selectedProject = selectedProject.getProject();
+  $scope.changeProject = function(id) {
+    refreshProjectData.refreshSampleLines(id);
+  };
   
 });
 
-app.controller('MainView', function ($scope, selectedProject)
+app.controller('MainView', function ($scope, $http, selectedProject, projectData)
 {
-    $scope.selectedProject = selectedProject.getProject();
+    $scope.sampleLineData = projectData.getSampleLines;
 });
 
 app.service('selectedProject', function () {
@@ -58,10 +38,42 @@ app.service('selectedProject', function () {
     return {
         getProject: function () {
             return project;
-        },
-        setProjectId: function(value) {
-            project = value;
         }
     };
+});
+
+app.service('refreshProjectData', function($http, projectData)
+{
+  return {
+    refreshSampleLines : function(id) {
+    
+    if (id !== 'No project selected'){
+      $http.get('http://localhost:3000/SampleLines/'+id)
+        .success(function(data) {
+          projectData.setSampleLines(data);
+        })
+        .error(function() {
+          // log error
+        });
+      }
+    }
+  };
+});
+
+app.service('projectData', function() {
+  var sampleLines = {
+    SampleLines: 'No Project Selected'
+  };
+  
+  return {   
+    getSampleLines : function() {
+      return sampleLines;
+    },
+    
+    setSampleLines : function(value)
+    {
+      console.log(sampleLines);
+    }
+  };
 });
  

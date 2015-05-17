@@ -8,8 +8,8 @@
       <md-button ng-click="close()" class="md-primary" hide-gt-md>
         Close Sidenav Left
       </md-button>
-      <md-radio-group ng-model="selectedProject.Id"  class="listdemoListControls">
-        	<md-radio-button ng-repeat="project in projects" ng-value="project.name"> {{ project.name }} </md-radio-button>
+      <md-radio-group ng-model="selectedProject.Id" ng-change="changeProject(selectedProject.Id)" class="listdemoListControls">
+        	<md-radio-button ng-repeat="project in projects" ng-value="project.id"> {{ project.name }} </md-radio-button>
       </md-radio-group>
     </md-content>
   </md-sidenav>
@@ -17,8 +17,9 @@
   <md-content flex layout-padding ng-controller="MainView">
     <div layout="column" layout-fill layout-align="top center">
       <p>
-      {{ selectedProject.Id }}
+      {{ sampleLineData().SampleLines }}
       </p>
+
     </div>
   </md-content>
 
