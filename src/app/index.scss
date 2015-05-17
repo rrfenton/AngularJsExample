@@ -4,6 +4,12 @@ html {
   font-family: 'Roboto Slab', serif;
 }
 
+html, body { 
+  height: 100%;
+  width: 100%; 
+  margin: 0; 
+}
+
 [layout=row] {
   flex-direction: row;
 }
@@ -24,11 +30,11 @@ html {
 }
 
 .viewWindow {
-  height: 100vh;
+  height: 100%;
 }
 
 .projectsPane{
-  height: 100vh;
+  height: 100%;
 }
 
 md-toolbar.md-default-theme {
