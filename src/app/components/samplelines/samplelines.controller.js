@@ -4,7 +4,7 @@ var app = angular.module('angularJsExample');
 app.controller('SampleLineCtrl', function ($scope, $http, selectedSampleLine, projectData)
 {
     $scope.selectedSample = selectedSampleLine.getSampleLine;  
-    $scope.sampleLineData = projectData.getSampleLines;
+    $scope.projectData = projectData.getProjectData;
 });
 
 app.service('projectData', function() {
@@ -13,11 +13,11 @@ app.service('projectData', function() {
   };
   
   return {   
-    getSampleLines : function() {
+    getProjectData : function() {
       return sampleLines;
     },
     
-    setSampleLines : function(value)
+    setProjectData : function(value)
     {
       sampleLines = value;
     }
@@ -32,6 +32,10 @@ app.service('selectedSampleLine', function () {
     return {
         getSampleLine: function () {
             return sampleLine;
+        },
+        
+        setSampleLine: function(value) {
+          sampleLine = value;
         }
     };
 });

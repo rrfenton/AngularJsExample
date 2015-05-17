@@ -4,7 +4,7 @@
     </md-toolbar>
     <md-content layout-padding ng-controller="SampleLineCtrl">
       <md-radio-group ng-model="selectedSample.data">
-        	<md-radio-button ng-repeat="sampleLine in sampleLineData().SampleLines" ng-value="sampleLine"> {{ sampleLine.SampleLineId }} </md-radio-button>
+        	<md-radio-button ng-repeat="sampleLine in projectData().SampleLines" ng-value="sampleLine"> {{ sampleLine.SampleLineId }} </md-radio-button>
       </md-radio-group>
     </md-content>
   </md-sidenav>

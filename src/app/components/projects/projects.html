@@ -6,7 +6,7 @@
       <md-button ng-click="close()" class="md-primary" hide-gt-md>
         Close Sidenav Left
       </md-button>
-      <md-radio-group ng-model="selectedProject.Id" ng-change="changeProject(selectedProject.Id)" class="listdemoListControls">
+      <md-radio-group ng-model="selectedProject.Id" ng-change="changeProject(selectedProject.Id)">
         	<md-radio-button ng-repeat="project in projects" ng-value="project.id"> {{ project.name }} </md-radio-button>
       </md-radio-group>
     </md-content>
