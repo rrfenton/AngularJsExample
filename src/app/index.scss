@@ -24,7 +24,11 @@ html {
 }
 
 .viewWindow {
-  height: 100%;
+  height: 100vh;
+}
+
+.projectsPane{
+  height: 100vh;
 }
 
 md-toolbar.md-default-theme {

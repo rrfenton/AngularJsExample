@@ -1,26 +1,4 @@
-<div layout="row" style="height:100%;" ng-app="angularJsExample" layout-fill>
-
-  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-    <md-toolbar class="md-theme-indigo">
-      <h1 class="md-toolbar-tools">Projects</h1>
-    </md-toolbar>
-    <md-content layout-padding ng-controller="LeftCtrl">
-      <md-button ng-click="close()" class="md-primary" hide-gt-md>
-        Close Sidenav Left
-      </md-button>
-      <md-radio-group ng-model="selectedProject.Id" ng-change="changeProject(selectedProject.Id)" class="listdemoListControls">
-        	<md-radio-button ng-repeat="project in projects" ng-value="project.id"> {{ project.name }} </md-radio-button>
-      </md-radio-group>
-    </md-content>
-  </md-sidenav>
-
-  <md-content flex layout-padding ng-controller="MainView">
-    <div layout="column" layout-fill layout-align="top center">
-      <p>
-      {{ sampleLineData().SampleLines }}
-      </p>
-
-    </div>
-  </md-content>
-
+<div layout="row" ng-app="angularJsExample" layout-fill>
+  <ng-include src="'app/components/projects/projects.html'" class="projectsPane"></ng-include>
+  <ng-include src="'app/components/samplelines/samplelines.html'" class="samplePane"></ng-include>
 </div>

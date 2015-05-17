@@ -1,0 +1,13 @@
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2 projectsPane" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-toolbar class="md-theme-indigo">
+      <h1 class="md-toolbar-tools">Projects</h1>
+    </md-toolbar>
+    <md-content layout-padding ng-controller="ProjectsCtrl">
+      <md-button ng-click="close()" class="md-primary" hide-gt-md>
+        Close Sidenav Left
+      </md-button>
+      <md-radio-group ng-model="selectedProject.Id" ng-change="changeProject(selectedProject.Id)" class="listdemoListControls">
+        	<md-radio-button ng-repeat="project in projects" ng-value="project.id"> {{ project.name }} </md-radio-button>
+      </md-radio-group>
+    </md-content>
+  </md-sidenav>
