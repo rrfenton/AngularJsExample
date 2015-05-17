@@ -14,25 +14,99 @@
     },
     {
       "id": 4,
-      "name": "Sam Is A Big Doodyface Who Makes People Work Hard On Mondays"
+      "name": "Hoolie"
     }
   ],
   "SampleLines": [
     {
       "id": 1,
-      "SampleLines": "some sampleLines 1"
+      "SampleLines": [
+        {
+          "SampleLineId": "SL001",
+          "Names": {
+            "FirstName": "Frank",
+            "LastName": "Zappa"
+          }
+        }
+      ]
     },
     {
       "id": 2,
-      "SampleLines": "some sampleLines 2"
+      "SampleLines": [
+        {
+          "SampleLineId": "SL001",
+          "Names": {
+            "FirstName": "Ted",
+            "LastName": "Turner"
+          }
+        },
+        {
+          "SampleLineId": "SL002",
+          "Names": {
+            "FirstName": "Elon",
+            "LastName": "Musk"
+          }
+        }
+      ]
     },
     {
       "id": 3,
-      "SampleLines": "some sampleLines 3"
+      "SampleLines": [
+        {
+          "SampleLineId": "SL001",
+          "Names": {
+            "FirstName": "Harry",
+            "LastName": "Potter"
+          }
+        },
+        {
+          "SampleLineId": "SL002",
+          "Names": {
+            "FirstName": "Ron",
+            "LastName": "Weasly"
+          }
+        },
+        {
+          "SampleLineId": "SL003",
+          "Names": {
+            "FirstName": "Hermoine",
+            "LastName": "Granger"
+          }
+        }
+      ]
     },
     {
       "id": 4,
-      "SampleLines": "some sampleLines 4"
+      "SampleLines": [
+        {
+          "SampleLineId": "SL001",
+          "Names": {
+            "FirstName": "Big",
+            "LastName": "Head"
+          }
+        },
+        {
+          "SampleLineId": "SL002",
+          "Names": {
+            "FirstName": "Richard",
+            "LastName": "Hendricks"
+          }
+        },
+        {
+          "SampleLineId": "SL003",
+          "Names": {
+            "FirstName": "Bertram",
+            "LastName": "Gilfoyle"
+          }
+        },
+        {
+          "SampleLineId": "SL004",
+          "Names": {
+            "FirstName": "Dinesh",
+            "LastName": "Chugtai"
+          }
+        }
+      ]
     }
   ]
 }

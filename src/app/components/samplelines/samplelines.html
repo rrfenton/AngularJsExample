@@ -1,8 +1,10 @@
-<md-content flex layout-padding ng-controller="SampleLineCtrl">
-<div layout="column" layout-fill layout-align="top center">
-  <p>
-  {{ sampleLineData().SampleLines }}
-  </p>
-
-</div>
-</md-content>
+  <md-sidenav class="md-whiteframe-z2 samplePane" md-component-id="sampleLines" md-is-locked-open="$mdMedia('gt-md')">
+    <md-toolbar class="md-theme-indigo">
+      <h1 class="md-toolbar-tools">Sample Lines</h1>
+    </md-toolbar>
+    <md-content layout-padding ng-controller="SampleLineCtrl">
+      <md-radio-group ng-model="selectedSample.data">
+        	<md-radio-button ng-repeat="sampleLine in sampleLineData().SampleLines" ng-value="sampleLine"> {{ sampleLine.SampleLineId }} </md-radio-button>
+      </md-radio-group>
+    </md-content>
+  </md-sidenav>
