@@ -22,7 +22,7 @@
       "id": 1,
       "SampleLines": [
         {
-          "SampleLineId": "SL001",
+          "SampleLineId": "AAA",
           "Names": {
             "FirstName": "Frank",
             "LastName": "Zappa"
@@ -53,21 +53,21 @@
       "id": 3,
       "SampleLines": [
         {
-          "SampleLineId": "SL001",
+          "SampleLineId": "FirstSample",
           "Names": {
             "FirstName": "Harry",
             "LastName": "Potter"
           }
         },
         {
-          "SampleLineId": "SL002",
+          "SampleLineId": "SecondSample",
           "Names": {
             "FirstName": "Ron",
             "LastName": "Weasly"
           }
         },
         {
-          "SampleLineId": "SL003",
+          "SampleLineId": "ThirdSample",
           "Names": {
             "FirstName": "Hermoine",
             "LastName": "Granger"
@@ -79,28 +79,28 @@
       "id": 4,
       "SampleLines": [
         {
-          "SampleLineId": "SL001",
+          "SampleLineId": "City",
           "Names": {
             "FirstName": "Big",
             "LastName": "Head"
           }
         },
         {
-          "SampleLineId": "SL002",
+          "SampleLineId": "Dickety",
           "Names": {
             "FirstName": "Richard",
             "LastName": "Hendricks"
           }
         },
         {
-          "SampleLineId": "SL003",
+          "SampleLineId": "Ebbity",
           "Names": {
             "FirstName": "Bertram",
             "LastName": "Gilfoyle"
           }
         },
         {
-          "SampleLineId": "SL004",
+          "SampleLineId": "Fleventy",
           "Names": {
             "FirstName": "Dinesh",
             "LastName": "Chugtai"
