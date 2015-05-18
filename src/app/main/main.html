@@ -1,7 +1,12 @@
-<div layout="row" ng-app="angularJsExample" layout-fill>
-  <ng-include src="'app/components/projects/projects.html'" class="projectsPane"></ng-include>
-  <ng-include src="'app/components/samplelines/samplelines.html'" class="samplePane"></ng-include>
-  <div style="position:absolute">
-    {{ selectedSample.data }}
-  </div>
+<div layout="column" ng-app="angularJsExample" layout-fill>
+    <ng-include src="'app/components/navbar/navbar.html'"></ng-include>
+    <md-content>
+        <div layout="row" ng-app="angularJsExample" layout-fill>
+            <ng-include src="'app/components/projects/projects.html'" class="projectsPane"></ng-include>
+            <ng-include src="'app/components/samplelines/samplelines.html'" class="samplePane"></ng-include>
+            <div style="position:absolute">
+              {{ selectedSample.data.Names }}
+            </div>
+        </div>
+    </md-content>
 </div>
